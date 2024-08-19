@@ -1,3 +1,5 @@
+use serde::de;
+
 enum Status {
     ToDo,
     InProgress,
@@ -24,7 +26,21 @@ struct Ticket {
 /// We will learn a better way to handle recoverable errors such as this one further along,
 /// but let's rely on panic for the time being.
 fn create_ticket(title: String, description: String, status: Status) -> Ticket {
-    todo!()
+    if title.len() == 0 {
+        panic!("Title cannot be empty");
+    }
+    if title.len() > 50 {
+        panic!("Title cannot be longer then 50 characters");
+    }
+    if description.len() > 3000 {
+        panic!("Description cannot be longer then 3000 character");
+    }
+
+    Ticket {
+        title,
+        description,
+        status,
+    }
 }
 
 #[cfg(test)]
@@ -32,7 +48,7 @@ mod tests {
     use super::*;
     use fake::Fake;
 
-    /// The #[should_panic] attribute inverts the usual behaviour for tests: if execution of
+    /// The #[should_panic] attribute inverts the usual behavior for tests: if execution of
     /// the test's function body causes a panic, the test is green; otherwise, it's red.
     ///
     /// This is quite handy to test unhappy path: in our case, what happens when invalid input

@@ -17,7 +17,7 @@
 /// You can find more about structs in the Rust Book: https://doc.rust-lang.org/book/ch05-01-defining-structs.html
 pub struct Ticket {
     title: String,
-    __: __
+    description: String,
 }
 
 /// `cfg` stands for configuration flag.
@@ -30,7 +30,7 @@ pub struct Ticket {
 /// You can put tests in different places in a Rust project, depending on what you are
 /// trying to do: unit testing of private functions and methods, testing an internal API,
 /// integration testing your crate from the outside, etc.
-/// You can find more details on test organisation in the Rust book:
+/// You can find more details on test organization in the Rust book:
 /// https://doc.rust-lang.org/book/ch11-03-test-organization.html
 ///
 /// Let it be said that tests are first-class citizens in the Rust ecosystem and you are
@@ -60,7 +60,7 @@ mod tests {
             /// This `.into()` method call is here for a reason, but give us time.
             /// We'll get there when it's the right moment.
             title: "A ticket title".into(),
-            description: "A heart-breaking description".into()
+            description: "A heart-breaking description".into(),
         };
 
         /// `assert_eq` is a macro (notice the ! at the end of the name).
