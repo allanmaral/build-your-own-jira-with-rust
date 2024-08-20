@@ -19,7 +19,7 @@ use crate::path_to_enlightenment::visibility::ticket::Status;
 /// `assert_eq` requires that its arguments implement the `PartialEq` trait.
 /// What is a trait?
 /// Traits in Rust are very similar to interfaces in other programming languages:
-/// a trait describes a behaviour/capability.
+/// a trait describes a behavior/capability.
 /// For example:
 ///
 /// ```
@@ -56,7 +56,11 @@ impl PartialEq for Status {
         // If you need to refresh the `match` syntax, checkout
         // https://doc.rust-lang.org/book/ch06-02-match.html
         match (self, other) {
-            __
+            (Status::ToDo, Status::ToDo)
+            | (Status::Blocked, Status::Blocked)
+            | (Status::InProgress, Status::InProgress)
+            | (Status::Done, Status::Done) => true,
+            _ => false,
         }
     }
 }
