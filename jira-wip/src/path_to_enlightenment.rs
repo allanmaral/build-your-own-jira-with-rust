@@ -32,3 +32,18 @@ mod store;
 #[path = "koans/02_ticket_store/02_option.rs"]
 mod option;
 
+#[path = "koans/02_ticket_store/03_id_generation.rs"]
+mod id_generation;
+
+#[path = "koans/02_ticket_store/04_metadata.rs"]
+mod metadata;
+
+#[path = "koans/02_ticket_store/05_type_as_constraints.rs"]
+mod type_as_constraints;
+
+#[path = "koans/02_ticket_store/06_result.rs"]
+mod result;
+
+#[path = "koans/02_ticket_store/07_vec.rs"]
+mod vec;
+
