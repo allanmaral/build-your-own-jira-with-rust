@@ -6,7 +6,7 @@
 //! reloading it before performing the next command.
 //!
 //! We will be relying on the `serde` crate (`Ser`ialisation/`De`serialisation):
-//! it can serialise data to many different file formats as long as your struct or enums
+//! it can serialize data to many different file formats as long as your struct or enums
 //! implement serde's `Serialize` trait.
 //! `Deserialize`, instead, is needed for the opposite journey.
 //!
@@ -25,7 +25,7 @@ pub fn load(path: &Path) -> TicketStore {
     match read_to_string(path) {
         Ok(data) => {
             // Deserialize configuration from YAML format
-            serde_yaml::from_str(&data).expect("Failed to parse serialised data.")
+            serde_yaml::from_str(&data).expect("Failed to parse serialized data.")
         }
         Err(e) => match e.kind() {
             // The file is missing - this is the first time you are using IronJira!
